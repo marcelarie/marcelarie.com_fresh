@@ -1,20 +1,48 @@
 /** @jsx h */
-import { h } from "preact";
+import { ComponentChildren, h } from "preact";
 import { tw } from "@twind";
+import { Head } from "$fresh/runtime.ts";
 import Counter from "../islands/Counter.tsx";
 
-export default function Home() {
+const NAV_LINKS = [
+  { name: "archive", href: "/archive" },
+  { name: "posts", href: "/posts" },
+  { name: "tags", href: "/tags" },
+];
+
+const NavLinks = () => {
   return (
-    <div class={tw`p-4 mx-auto max-w-screen-md`}>
-      <img
-        src="/logo.svg"
-        height="100px"
-        alt="the fresh logo: a sliced lemon dripping with juice"
-      />
-      <p class={tw`my-6`}>
-        Welcome to the fresh app.
-      </p>
-      <Counter start={3} />
+    <div class="nav_links">
+      {NAV_LINKS.map(({ name, href }) => <a href={href}>{name}</a>)}
     </div>
+  );
+};
+
+const Nav = () => (
+  <div class="nav">
+    <a href="/">
+      <p>marcelarie</p>
+    </a>
+    <NavLinks />
+  </div>
+);
+
+const DESCRIPTION = "my blog";
+
+type HomeProps = { children?: ComponentChildren };
+
+const Main = () => <main>main</main>;
+
+export default function Home({ children }: HomeProps) {
+  return (
+    <main>
+      <Head>
+        <title>marcelarie</title>
+        <link rel="stylesheet" href="./style.css" />
+        <meta name="description" content={DESCRIPTION} />
+      </Head>
+      <Nav />
+      {children ?? <Main />}
+    </main>
   );
 }

@@ -1,11 +1,8 @@
-# fresh project
+# Rewrite my blog with fresh
 
 ### Usage
 
-Start the project:
-
+```console
+$ deno task start
 ```
-deno task start
-```
-
 This will watch the project directory and restart as necessary.

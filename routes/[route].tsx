@@ -8,9 +8,9 @@ type Router = Record<string, () => h.JSX.Element>;
 /*
 * This "routes" will be importet in the future
 */
-const archive = () => <main>archive</main>;
-const posts = () => <main>posts</main>;
-const tags = () => <main>tags</main>;
+const archive = () => <div class="content">Archive</div>;
+const posts = () => <div class="content">Posts</div>;
+const tags = () => <div class="content">Tags</div>;
 
 const ROUTER: Router = { archive, posts, tags };
 

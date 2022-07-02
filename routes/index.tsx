@@ -31,7 +31,7 @@ const DESCRIPTION = "my blog";
 
 type HomeProps = { children?: ComponentChildren };
 
-const Main = () => <main>main</main>;
+const Main = () => <div class="content">Homepage content</div>;
 
 export default function Home({ children }: HomeProps) {
   return (
